@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./components.css";
+
+@source "../../../packages/core";
+@source "../../../packages/chain";
+
+/* shadcn/ui variable mapping (brand README). Kept so shadcn primitives drop in later. */
+:root {
+  --background: var(--surface);
+  --foreground: var(--ink);
+  --card: var(--surface-raised);
+  --card-foreground: var(--ink);
+  --popover: var(--surface-raised);
+  --popover-foreground: var(--ink);
+  --primary: var(--action);
+  --primary-foreground: var(--on-action);
+  --secondary: var(--surface-muted);
+  --secondary-foreground: var(--ink);
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--brand-soft);
+  --accent-foreground: var(--on-brand-soft);
+  --destructive: var(--negative);
+  --border: var(--line);
+  --input: var(--line-strong);
+  --ring: var(--focus);
+  --radius: 10px;
+}
+
+html {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 22px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body { margin: 0; min-height: 100dvh; background: var(--surface); color: var(--ink); }
+h1, h2, h3 { margin: 0; font-family: var(--font-heading); color: var(--ink); }
+a { color: inherit; }
+button { font: inherit; }
+.tabular { font-variant-numeric: tabular-nums; }
+.container-td { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+@media (max-width: 767px) { .container-td { padding: 0 var(--space-4); } }
+
+/* Skeletons: surface-muted blocks, never spinners over numbers. */
+.td-skel { background: var(--surface-muted); border-radius: var(--radius-sm); min-height: 1em; }
+
+/* App shell */
+.td-shell { display: flex; flex-direction: column; min-height: 100dvh; background: var(--surface); color: var(--ink); }
+.td-main { flex: 1; padding: var(--space-8) 0 var(--space-16); }
+@media (max-width: 767px) {
+  .td-main { padding: var(--space-6) 0 calc(var(--space-16) + 56px); }
+  .td-header .td-nav { display: none; }
+  .td-header { gap: var(--space-4); padding: 0 var(--space-4); }
+}
+.td-tabbar { position: fixed; inset-inline: 0; bottom: 0; display: none; height: 56px; background: var(--surface-raised); border-top: 1px solid var(--line); z-index: 30; }
+@media (max-width: 767px) { .td-tabbar { display: flex; } }
+.td-tabbar a { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: var(--ink-muted); text-decoration: none; }
+.td-tabbar a[aria-current="page"] { color: var(--ink); }
+
+/* Page header */
+.td-page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-8); flex-wrap: wrap; }
+.td-grid { display: grid; gap: var(--space-8); grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.td-col-4 { grid-column: span 12; } .td-col-6 { grid-column: span 12; } .td-col-8 { grid-column: span 12; } .td-col-12 { grid-column: span 12; }
+@media (min-width: 768px) { .td-col-4 { grid-column: span 4; } .td-col-6 { grid-column: span 6; } .td-col-8 { grid-column: span 8; } }
+.td-section { display: flex; flex-direction: column; gap: var(--space-4); }
+.td-section-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.td-list { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface-raised); box-shadow: var(--shadow-card); }
+.td-empty { padding: var(--space-6); color: var(--ink-muted); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.td-banner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--brand-soft); color: var(--on-brand-soft); font-size: 14px; flex-wrap: wrap; }
+.td-banner-negative { background: var(--negative-soft); color: var(--negative); border-color: transparent; }
+.td-note { font-size: 13px; line-height: 20px; color: var(--ink-muted); margin: 0; }
+
+/* Table */
+.td-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.td-table th { text-align: left; font-size: 13px; font-weight: 500; color: var(--ink-muted); background: var(--surface-muted); padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--line); }
+.td-table td { padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.td-table tr:last-child td { border-bottom: 0; }
+.td-table .num { text-align: right; }
+.td-rowlink { text-decoration: none; color: inherit; }
+.td-rowlink:hover { background: var(--surface-muted); }
+
+/* Segmented control */
+.td-seg { display: inline-flex; padding: 2px; border-radius: var(--radius-md); background: var(--surface-muted); }
+.td-seg button { border: 0; background: transparent; color: var(--ink-muted); font-size: 13px; font-weight: 500; height: 32px; padding: 0 var(--space-4); border-radius: calc(var(--radius-md) - 2px); cursor: pointer; }
+.td-seg button[aria-pressed="true"] { background: var(--surface-raised); color: var(--ink); box-shadow: var(--shadow-card); }
+
+.td-menu { position: absolute; right: 0; top: calc(100% + 6px); min-width: 200px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-pop); padding: var(--space-2); z-index: 40; display: flex; flex-direction: column; }
+.td-menu a, .td-menu button { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: 8px var(--space-3); border-radius: var(--radius-sm); font-size: 14px; color: var(--ink); text-decoration: none; background: transparent; border: 0; text-align: left; cursor: pointer; }
+.td-menu a:hover, .td-menu button:hover { background: var(--surface-muted); }
+
+/* next/font/local exposes --font-manrope / --font-inter; tokens.css names them by role. */
+:root {
+  --font-heading: var(--font-manrope), Manrope, Inter, system-ui, sans-serif;
+  --font-body: var(--font-inter), Inter, system-ui, sans-serif;
+}
