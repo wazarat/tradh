@@ -3,7 +3,7 @@ import { randomBytes } from "node:crypto";
 import { and, eq, gt } from "drizzle-orm";
 import { cookies } from "next/headers";
 import { auditLogs, sessions, users, wallets } from "@tradh/db";
-import { db } from "@/lib/db";
+import { db, hasDatabase } from "@/lib/db";
 
 export const SESSION_COOKIE = "tradh_session";
 export const SESSION_TTL_SECONDS = 7 * 24 * 3600;
@@ -48,7 +48,7 @@ export async function createSessionForWallet(address: `0x${string}`, chainId: nu
 /** Reads the current session from the cookie; returns null when absent, expired or DB unavailable. */
 export async function getSession(): Promise<SessionInfo | null> {
   const id = (await cookies()).get(SESSION_COOKIE)?.value;
-  if (!id || !process.env.DATABASE_URL) return null;
+  if (!id || !hasDatabase()) return null;
   const row = await db().query.sessions.findFirst({ where: and(eq(sessions.id, id), gt(sessions.expiresAt, new Date())) });
   if (!row) return null;
   return { sessionId: row.id, userId: row.userId, walletAddress: row.walletAddress as `0x${string}`, chainId: row.chainId, expiresAt: row.expiresAt };
@@ -63,7 +63,7 @@ export async function requireSession(): Promise<SessionInfo> {
 export async function destroySession(): Promise<void> {
   const jar = await cookies();
   const id = jar.get(SESSION_COOKIE)?.value;
-  if (id && process.env.DATABASE_URL) {
+  if (id && hasDatabase()) {
     await db().delete(sessions).where(eq(sessions.id, id));
   }
   jar.set(SESSION_COOKIE, "", { ...cookieOptions(new Date(0)), maxAge: 0 });

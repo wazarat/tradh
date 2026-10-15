@@ -1,11 +1,13 @@
 import { defineConfig } from "drizzle-kit";
 
-// DIRECT_URL is the non-pooled Supabase connection (port 5432) used for migrations.
+// Migrations use the non-pooled connection: DIRECT_URL, or POSTGRES_URL_NON_POOLING from the Vercel Supabase integration.
+const url = process.env.DIRECT_URL ?? process.env.POSTGRES_URL_NON_POOLING ?? process.env.DATABASE_URL ?? process.env.POSTGRES_URL ?? "";
+
 export default defineConfig({
   dialect: "postgresql",
   schema: "./src/schema/index.ts",
   out: "./drizzle",
-  dbCredentials: { url: process.env.DIRECT_URL ?? process.env.DATABASE_URL ?? "" },
+  dbCredentials: { url },
   strict: true,
   verbose: true,
 });

@@ -1,5 +1,5 @@
 import "server-only";
-import { getDb, type Db } from "@tradh/db";
+import { getDb, pooledDatabaseUrl, type Db } from "@tradh/db";
 
 export class DatabaseUnavailableError extends Error {
   constructor() {
@@ -10,10 +10,10 @@ export class DatabaseUnavailableError extends Error {
 
 /** Returns the Drizzle client, or throws DatabaseUnavailableError when DATABASE_URL is unset. */
 export function db(): Db {
-  if (!process.env.DATABASE_URL) throw new DatabaseUnavailableError();
+  if (!pooledDatabaseUrl()) throw new DatabaseUnavailableError();
   return getDb();
 }
 
 export function hasDatabase(): boolean {
-  return Boolean(process.env.DATABASE_URL);
+  return Boolean(pooledDatabaseUrl());
 }
