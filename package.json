@@ -1,0 +1,19 @@
+{
+  "name": "tradh",
+  "private": true,
+  "packageManager": "pnpm@12.3.4",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @tradh/web dev",
+    "build": "pnpm -r --filter './packages/**' build && pnpm --filter @tradh/web build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "db:generate": "pnpm --filter @tradh/db generate",
+    "db:migrate": "pnpm --filter @tradh/db migrate",
+    "contracts:test": "forge test --root packages/contracts",
+    "contracts:build": "forge build --root packages/contracts"
+  }
+}

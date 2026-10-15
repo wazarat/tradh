@@ -1,0 +1,10 @@
+{
+  "chainId": 46630,
+  "network": "robinhood-chain-testnet",
+  "deployed": false,
+  "deployedAt": null,
+  "deployer": null,
+  "commit": null,
+  "contracts": {},
+  "assets": []
+}

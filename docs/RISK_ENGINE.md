@@ -1,0 +1,3 @@
+# Risk engine (Milestone 4)
+
+Enforcement levels: (1) schema validation in `StrategySpec`; (2) server-side risk checks on every proposal and immediately before execution (price age, notional caps, daily window, allocation caps, slippage, venue allowlist); (3) onchain `StrategyPolicyManager` + `ExecutionRouter` for automated mode (chain id, wallet, strategy/policy hash, token and router allowlists, per-trade and daily notional, slippage, price age, nonce, expiry, revocation, emergency pause). Where something cannot be enforced onchain the UI says so; automation is never described as trustless. The AI never changes permissions.
