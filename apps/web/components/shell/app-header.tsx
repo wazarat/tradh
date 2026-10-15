@@ -82,7 +82,8 @@ function NetworkChip() {
   }
   return (
     <Badge tone="brand" dot>
-      Robinhood Chain Testnet
+      <span className="td-net-full">Robinhood Chain Testnet</span>
+      <span className="td-net-short">Testnet</span>
     </Badge>
   );
 }
