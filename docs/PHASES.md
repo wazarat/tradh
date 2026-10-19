@@ -31,23 +31,26 @@ Agent identities, validation evidence, reputation, strategy discovery and non-ex
 ## Browser verification journey (M1–M2)
 Connect wallet → wrong-network banner → switch to 46630 → claim mUSD → Markets shows mock assets with Mock badge and price age → asset detail → Trade shows all cost rows and countdown → approve → swap → Submitted → Confirmed with explorer link → Activity and Overview updated. Failure cases: stale oracle blocks trade; expired quote swaps CTA to "Refresh quote"; wallet rejection shows Rejected.
 
-## CanHav studio mapping (live project aa32f878 "tradh", Robinhood testnet, propose mode)
+## CanHav plan (live project aa32f878 "tradh", Robinhood testnet, propose mode)
 
-Shapes: **Stock and fund tokens** (`tokenized_security`, feature "Built on an exchange's stock tokens") and **Basic AMM pool** (`basic_amm_pool`). Template decisions: accepted Robinhood Stock Tokens, Chainlink Data Feeds, Safe Smart Account, Uniswap v2 (reference and Phase 2 route); issuer suites, Pons peg pairing, LP staking, stableswap and Balancer rejected; v3/v4, hooks, LFJ, PancakeSwap and ACE left open for Phase 2.
+Shapes: **Stock and fund tokens** (`tokenized_security`, feature "Built on an exchange's stock tokens") and **Basic AMM pool** (`basic_amm_pool`). Accepted templates: Robinhood Stock Tokens, Chainlink Data Feeds, Safe Smart Account, Uniswap v2 (reference and Phase 2 route). Studio state after acceptance: 6 of 17 build steps done, 4 not applicable, 10 review passes open, validation blocked only by the Robinhood distribution acknowledgement.
 
-| CanHav step | tradh. status | Evidence |
-| --- | --- | --- |
-| Name both tokens, token integration checklist | Done | `packages/contracts/src/MockSpotExchange.sol`, `docs/CONTRACTS.md` |
-| Swap surface with quote, slippage bound, deadline | Done | `apps/web/components/trade/trade-ticket.tsx` |
-| Protocol fee switch and key | Done | `packages/contracts/src/FeeController.sol` |
-| Issuer and token standard | Done | `docs/CONTRACTS.md` |
-| Price feed and market hours | Done | `MockPriceOracle.sol`, `packages/chain/src/market` |
-| Issuer, backing and rights before purchase | Done | asset detail and trade ticket copy |
-| Seed through the router at the reference ratio | Open until deployed | `script/DeployTestnet.s.sol` |
-| Testnet manifest | Open until deployed | `packages/chain/deployments/46630.json` |
-| Pair invariants as property tests | Open | extend `test/MockSpotExchange.t.sol` to the five pool-invariant statements |
-| Eligibility, corporate actions | Open (mainnet phase) | ERC-8056 multiplier, jurisdiction rules |
-| Review passes (10) | Open | run after deployment: static analysis, keys, pool init, manifest, MEV, invariants, environment, LP disclosure, transfer rules, issuer powers |
-| Deploy Uniswap stack, LP divergence disclosure, issuer controls, eligibility invariants | Not applicable | own mock venue, operator-only liquidity, not an issuer |
+### Sequence, with the CanHav item each step closes
 
-Before CanHav can publish: the owner accepts the proposals under Agent changes and ticks the Robinhood distribution acknowledgement in Reality. Token launch is optional and not part of Phase 1.
+| # | Work | Owner | Closes |
+| --- | --- | --- | --- |
+| 0 | Push `main`; Postgres URLs in `.env.local`; funded deployer key; tick the acknowledgement; publish | Wazarat | Studio validation, public page |
+| 1 | Run the migration, verify SIWE sign-in and order recording end to end | agent | Milestone 1 acceptance |
+| 2 | Deploy, verify on Blockscout, seed pools at the reference ratio; write the manifest in CanHav's record format (address, sourceRepo, commitHash, compiler, runtimeCodeHash, deploymentTxn, explorer, verified, deployedOn) and a script that calls a view on every address | agent | `basic_amm_pool.manifest`, `basic_amm_pool.seed`, custom step 1, review: pool-manifest, pool-environment, pool-init |
+| 3 | Pool invariant suite: one handler, one invariant per statement 1–4 (reserve product, share supply and locked 1,000, mint shares, burn returns), statement 5 (price accumulators) marked not applicable because the venue has no TWAP; traces and seeds recorded | agent | `basic_amm_pool.invariants`, review: pool-invariants |
+| 4 | Static analysis (Slither) over every contract, findings closed or justified in `docs/SECURITY.md` | agent | review: static |
+| 5 | Role table in `docs/SECURITY.md` following the CanHav role model (Owner, Fee manager, Sentinel, Automation bot); testnet runs on one deployer key, so the pass reads Fail with the Safe plan until mainnet | agent | review: keys |
+| 6 | Transfer-rules worksheet for building on exchange tokens (Robinhood eligibility, market hours, halts; mock tokens unrestricted) and ERC-8056 multiplier handling in the registry and ledger | agent | `tokenized_security.eligibility`, `tokenized_security.corporate-actions`, review: transfer-rules, issuer-powers (issuer powers: N/A, not an issuer) |
+| 7 | Milestone 3: StrategySpec UI, plain-English builder, tradh MCP server, versioning, scheduled evaluation | agent | custom step 2 |
+| 8 | Milestone 4: proposals, approval flow, risk engine, StrategyPolicyManager, ExecutionRouter, revocation, notifications; the automation bot gets a scoped policy key | agent | custom step 3, review: keys (bot) |
+| 9 | Milestone 5: ledger-derived returns, eight Simulated scenarios, Playwright journey, MEV fork simulations (sandwich, JIT, oracle manipulation) on the mock pool | agent | custom step 4, `tokenized_security.testnet`, review: mev, both `.review` steps |
+
+Not applicable and why: Uniswap v2 stack on testnet (own venue), LP divergence-loss screen (operator-only liquidity), issuer controls and eligibility invariants (not an issuer). A Phase 2 external route to Uniswap on mainnet 4663 reopens the stack and LP items.
+
+### Evidence conventions
+Every tick carries a file path, test name or transaction. Verdicts go to the studio through `update_project` `kit.review` with the pass id. Simulated, backtested, forward and live results never share a series; Testnet labels stay on every surface while `ENABLE_LIVE_MONEY` is off.
