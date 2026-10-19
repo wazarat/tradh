@@ -1,0 +1,50 @@
+{
+  "assets": {
+    "mAAPL": {
+      "address": "0x93b801322633159709B2EE7e3374d2D19665e629",
+      "decimals": 18,
+      "isQuote": false,
+      "kind": "mock",
+      "name": "Mock Apple",
+      "symbol": "mAAPL",
+      "underlyingSymbol": "AAPL"
+    },
+    "mMSFT": {
+      "address": "0xb6590F23ce0551B26e0323ADAE89838e5c0Ed57E",
+      "decimals": 18,
+      "isQuote": false,
+      "kind": "mock",
+      "name": "Mock Microsoft",
+      "symbol": "mMSFT",
+      "underlyingSymbol": "MSFT"
+    },
+    "mNVDA": {
+      "address": "0x656ca061BeD6Cb51139ef0A835E5371D19F76c0b",
+      "decimals": 18,
+      "isQuote": false,
+      "kind": "mock",
+      "name": "Mock Nvidia",
+      "symbol": "mNVDA",
+      "underlyingSymbol": "NVDA"
+    },
+    "mUSD": {
+      "address": "0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "decimals": 6,
+      "isQuote": true,
+      "kind": "mock",
+      "name": "Mock USD",
+      "symbol": "mUSD",
+      "underlyingSymbol": "USD"
+    }
+  },
+  "chainId": 46630,
+  "contracts": {
+    "FeeController": "0x1eD65E775048E2D37DEf2bd5F87BA9C90F3c38A3",
+    "MockPriceOracle": "0x528B5bdF97A8b02cB37710C31b1812aBBd551A13",
+    "MockSpotExchange": "0x4831D16cF7115884dEe21F8443B2dD2c717141ab",
+    "MockUSD": "0x5b465501348A226d4B12E040d8912d4c4776d966"
+  },
+  "deployed": true,
+  "deployer": "0x2087C36f35F16a5B07e288D9a8f985bAa2Da9591",
+  "network": "robinhood-chain-testnet"
+}

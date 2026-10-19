@@ -1,6 +1,6 @@
 # Contracts (Phase 1)
 
-All contracts are **testnet-only development contracts**. They are not audited and must not hold real value.
+All contracts are **testnet-only development contracts**. They are not audited and must not hold real value. Deployed and verified on Robinhood Chain Testnet; addresses in `docs/TESTNET_DEPLOYMENTS.md`.
 
 | Contract | Purpose | Key controls |
 | --- | --- | --- |

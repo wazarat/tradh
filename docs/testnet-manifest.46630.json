@@ -1,0 +1,162 @@
+{
+  "selfDeployed": true,
+  "provenance": "own",
+  "notice": "tradh. Phase 1 testnet venue. Every address the app, tests and agents use comes from this file (mirrored in packages/chain/deployments/46630.json). Mock assets have no value and are not Robinhood-issued Stock Tokens.",
+  "checkedOn": "2026-10-19",
+  "deployer": "0x2087c36f35f16a5b07e288d9a8f985baa2da9591",
+  "chainId": 46630,
+  "network": {
+    "name": "Robinhood Chain Testnet",
+    "rpc": "https://rpc.testnet.chain.robinhood.com",
+    "explorer": "https://explorer.testnet.chain.robinhood.com",
+    "faucet": "https://faucet.testnet.chain.robinhood.com"
+  },
+  "contracts": {
+    "MockUSD": {
+      "address": "0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "sourceRepo": "https://github.com/wazarat/tradh",
+      "sourcePath": "packages/contracts/src/MockUSD.sol",
+      "commitHash": "16e1dcb",
+      "compiler": "solc 0.8.28 (optimizer 200 runs, evm paris)",
+      "runtimeCodeHash": "0xae8b63b786f8077dc6d5cac01d3b61a07c2ac51712ca7848c89a40fa95f17864",
+      "deploymentTxn": "0x53ee149fdc8eec69c044d25e5c25964500f839cd3b1fbccf9a938e02d9f39dbc",
+      "explorer": "https://explorer.testnet.chain.robinhood.com/address/0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "verified": true,
+      "deployedOn": "2026-10-19T15:28:31Z"
+    },
+    "MockPriceOracle": {
+      "address": "0x528B5bdF97A8b02cB37710C31b1812aBBd551A13",
+      "sourceRepo": "https://github.com/wazarat/tradh",
+      "sourcePath": "packages/contracts/src/MockPriceOracle.sol",
+      "commitHash": "16e1dcb",
+      "compiler": "solc 0.8.28 (optimizer 200 runs, evm paris)",
+      "runtimeCodeHash": "0xa6bc0c11c2fc2581a3733910d074c4e595dfc2badb34511d8b12a5c251e1d1bd",
+      "deploymentTxn": "0x9863da5e3b68491d0e43f4804650fa4d8fa940bea409613598bebe63b118ed6c",
+      "explorer": "https://explorer.testnet.chain.robinhood.com/address/0x528B5bdF97A8b02cB37710C31b1812aBBd551A13",
+      "verified": true,
+      "deployedOn": "2026-10-19T15:28:31Z"
+    },
+    "FeeController": {
+      "address": "0x1eD65E775048E2D37DEf2bd5F87BA9C90F3c38A3",
+      "sourceRepo": "https://github.com/wazarat/tradh",
+      "sourcePath": "packages/contracts/src/FeeController.sol",
+      "commitHash": "16e1dcb",
+      "compiler": "solc 0.8.28 (optimizer 200 runs, evm paris)",
+      "runtimeCodeHash": "0x4ac50a490f6b3d6dfc235e798e5151a1ca1b4a2f8afc6d4178ab0525862ceeb0",
+      "deploymentTxn": "0x86d17074b8a1cbd970018173a665d0392e84602c401c485a3266b30759a4f9dc",
+      "explorer": "https://explorer.testnet.chain.robinhood.com/address/0x1eD65E775048E2D37DEf2bd5F87BA9C90F3c38A3",
+      "verified": true,
+      "deployedOn": "2026-10-19T15:28:31Z"
+    },
+    "MockSpotExchange": {
+      "address": "0x4831D16cF7115884dEe21F8443B2dD2c717141ab",
+      "sourceRepo": "https://github.com/wazarat/tradh",
+      "sourcePath": "packages/contracts/src/MockSpotExchange.sol",
+      "commitHash": "16e1dcb",
+      "compiler": "solc 0.8.28 (optimizer 200 runs, evm paris)",
+      "runtimeCodeHash": "0x7fa66205c057bfeded4f42f285930616dfb47a068cedd7b0c9ebd590bf5be235",
+      "deploymentTxn": "0x462493b868d7a0852f2c3c65e1956c82747a138650d0adaa9133bc688a2ea61c",
+      "explorer": "https://explorer.testnet.chain.robinhood.com/address/0x4831D16cF7115884dEe21F8443B2dD2c717141ab",
+      "verified": true,
+      "deployedOn": "2026-10-19T15:28:31Z"
+    }
+  },
+  "tokens": {
+    "mAAPL": {
+      "address": "0x93b801322633159709B2EE7e3374d2D19665e629",
+      "sourceRepo": "https://github.com/wazarat/tradh",
+      "sourcePath": "packages/contracts/src/MockStockToken.sol",
+      "commitHash": "16e1dcb",
+      "compiler": "solc 0.8.28 (optimizer 200 runs, evm paris)",
+      "runtimeCodeHash": "0x7b0858e90a184b698df0395ab5d2e1a54dcdea8836c7df7ce6f2ab4a30a97425",
+      "deploymentTxn": "0x1a7aa3a8d9bfe43ed06f1a5ac147c9cf752ba7c3f0fe709af298826763a5fca8",
+      "explorer": "https://explorer.testnet.chain.robinhood.com/address/0x93b801322633159709B2EE7e3374d2D19665e629",
+      "verified": true,
+      "deployedOn": "2026-10-19T15:28:31Z",
+      "symbol": "mAAPL",
+      "decimals": 18,
+      "underlying": "AAPL",
+      "isMock": true
+    },
+    "mMSFT": {
+      "address": "0xb6590F23ce0551B26e0323ADAE89838e5c0Ed57E",
+      "sourceRepo": "https://github.com/wazarat/tradh",
+      "sourcePath": "packages/contracts/src/MockStockToken.sol",
+      "commitHash": "16e1dcb",
+      "compiler": "solc 0.8.28 (optimizer 200 runs, evm paris)",
+      "runtimeCodeHash": "0x7b0858e90a184b698df0395ab5d2e1a54dcdea8836c7df7ce6f2ab4a30a97425",
+      "deploymentTxn": "0x200f79ffc74192a35e65921b51379030e0e552e65cf06bbe24694e7ce1889475",
+      "explorer": "https://explorer.testnet.chain.robinhood.com/address/0xb6590F23ce0551B26e0323ADAE89838e5c0Ed57E",
+      "verified": true,
+      "deployedOn": "2026-10-19T15:28:31Z",
+      "symbol": "mMSFT",
+      "decimals": 18,
+      "underlying": "MSFT",
+      "isMock": true
+    },
+    "mNVDA": {
+      "address": "0x656ca061BeD6Cb51139ef0A835E5371D19F76c0b",
+      "sourceRepo": "https://github.com/wazarat/tradh",
+      "sourcePath": "packages/contracts/src/MockStockToken.sol",
+      "commitHash": "16e1dcb",
+      "compiler": "solc 0.8.28 (optimizer 200 runs, evm paris)",
+      "runtimeCodeHash": "0x7b0858e90a184b698df0395ab5d2e1a54dcdea8836c7df7ce6f2ab4a30a97425",
+      "deploymentTxn": "0xdb9afd8072fde569d5d5c05e107ad37a88584e8d107ae63ac9c9d6e984b23398",
+      "explorer": "https://explorer.testnet.chain.robinhood.com/address/0x656ca061BeD6Cb51139ef0A835E5371D19F76c0b",
+      "verified": true,
+      "deployedOn": "2026-10-19T15:28:31Z",
+      "symbol": "mNVDA",
+      "decimals": 18,
+      "underlying": "NVDA",
+      "isMock": true
+    },
+    "mUSD": {
+      "address": "0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "sourceRepo": "https://github.com/wazarat/tradh",
+      "sourcePath": "packages/contracts/src/MockUSD.sol",
+      "commitHash": "16e1dcb",
+      "compiler": "solc 0.8.28 (optimizer 200 runs, evm paris)",
+      "runtimeCodeHash": "0xae8b63b786f8077dc6d5cac01d3b61a07c2ac51712ca7848c89a40fa95f17864",
+      "deploymentTxn": "0x53ee149fdc8eec69c044d25e5c25964500f839cd3b1fbccf9a938e02d9f39dbc",
+      "explorer": "https://explorer.testnet.chain.robinhood.com/address/0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "verified": true,
+      "deployedOn": "2026-10-19T15:28:31Z",
+      "symbol": "mUSD",
+      "decimals": 6,
+      "underlying": "USD",
+      "isMock": true
+    }
+  },
+  "pools": [
+    {
+      "id": "mAAPL/mUSD",
+      "version": "tradh-mock-v1",
+      "asset": "0x93b801322633159709B2EE7e3374d2D19665e629",
+      "quote": "0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "lpFeeBps": 30,
+      "protocolFeeBps": 0,
+      "initTxn": "0xf3c2b47b181320ed741bf084bb2653be7e70976c96f362c9c07b3640c682cb7c",
+      "firstLiquidityTxn": "0x64645ca0ed24e039ee579bc208364b2455535529db513122e6b38ef48e630f16"
+    },
+    {
+      "id": "mMSFT/mUSD",
+      "version": "tradh-mock-v1",
+      "asset": "0xb6590F23ce0551B26e0323ADAE89838e5c0Ed57E",
+      "quote": "0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "lpFeeBps": 30,
+      "protocolFeeBps": 0,
+      "initTxn": "0xa6f695a4b26e5a1a7ed15a053cc77a5d0274ad52f94dfc8e23f04994e8783e89",
+      "firstLiquidityTxn": "0x12338a92afd7ddf80ca1dee35b50d9aa458f0507c10971783ffbf74c3cc08148"
+    },
+    {
+      "id": "mNVDA/mUSD",
+      "version": "tradh-mock-v1",
+      "asset": "0x656ca061BeD6Cb51139ef0A835E5371D19F76c0b",
+      "quote": "0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "lpFeeBps": 30,
+      "protocolFeeBps": 0,
+      "initTxn": "0x199b5d58b9bfdf66bc4cb051de7c551a002af9dd484fa90df6d69d34709adcb9",
+      "firstLiquidityTxn": "0x13851e758e7b525442cc7fc2c77f2d055875f3f5e27adb9aa51febc54921b017"
+    }
+  ]
+}

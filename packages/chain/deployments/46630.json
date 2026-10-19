@@ -1,10 +1,94 @@
 {
   "chainId": 46630,
   "network": "robinhood-chain-testnet",
-  "deployed": false,
-  "deployedAt": null,
-  "deployer": null,
-  "commit": null,
-  "contracts": {},
-  "assets": []
+  "deployed": true,
+  "deployedAt": "2026-10-19T15:28:31Z",
+  "deployer": "0x2087c36f35f16a5b07e288d9a8f985baa2da9591",
+  "commit": "16e1dcb",
+  "contracts": {
+    "FeeController": {
+      "address": "0x1eD65E775048E2D37DEf2bd5F87BA9C90F3c38A3",
+      "txHash": "0x86d17074b8a1cbd970018173a665d0392e84602c401c485a3266b30759a4f9dc",
+      "verified": true,
+      "blockNumber": 138803712
+    },
+    "MockPriceOracle": {
+      "address": "0x528B5bdF97A8b02cB37710C31b1812aBBd551A13",
+      "txHash": "0x9863da5e3b68491d0e43f4804650fa4d8fa940bea409613598bebe63b118ed6c",
+      "verified": true,
+      "blockNumber": 138803712
+    },
+    "MockSpotExchange": {
+      "address": "0x4831D16cF7115884dEe21F8443B2dD2c717141ab",
+      "txHash": "0x462493b868d7a0852f2c3c65e1956c82747a138650d0adaa9133bc688a2ea61c",
+      "verified": true,
+      "blockNumber": 138803712
+    },
+    "MockUSD": {
+      "address": "0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "txHash": "0x53ee149fdc8eec69c044d25e5c25964500f839cd3b1fbccf9a938e02d9f39dbc",
+      "verified": true,
+      "blockNumber": 138803712
+    },
+    "mAAPL": {
+      "address": "0x93b801322633159709B2EE7e3374d2D19665e629",
+      "txHash": "0x1a7aa3a8d9bfe43ed06f1a5ac147c9cf752ba7c3f0fe709af298826763a5fca8",
+      "verified": true,
+      "blockNumber": 138803712
+    },
+    "mMSFT": {
+      "address": "0xb6590F23ce0551B26e0323ADAE89838e5c0Ed57E",
+      "txHash": "0x200f79ffc74192a35e65921b51379030e0e552e65cf06bbe24694e7ce1889475",
+      "verified": true,
+      "blockNumber": 138803713
+    },
+    "mNVDA": {
+      "address": "0x656ca061BeD6Cb51139ef0A835E5371D19F76c0b",
+      "txHash": "0xdb9afd8072fde569d5d5c05e107ad37a88584e8d107ae63ac9c9d6e984b23398",
+      "verified": true,
+      "blockNumber": 138803713
+    }
+  },
+  "assets": [
+    {
+      "symbol": "mAAPL",
+      "name": "Mock Apple",
+      "address": "0x93b801322633159709B2EE7e3374d2D19665e629",
+      "decimals": 18,
+      "kind": "mock",
+      "underlyingSymbol": "AAPL",
+      "isQuote": false,
+      "txHash": "0x1a7aa3a8d9bfe43ed06f1a5ac147c9cf752ba7c3f0fe709af298826763a5fca8"
+    },
+    {
+      "symbol": "mMSFT",
+      "name": "Mock Microsoft",
+      "address": "0xb6590F23ce0551B26e0323ADAE89838e5c0Ed57E",
+      "decimals": 18,
+      "kind": "mock",
+      "underlyingSymbol": "MSFT",
+      "isQuote": false,
+      "txHash": "0x200f79ffc74192a35e65921b51379030e0e552e65cf06bbe24694e7ce1889475"
+    },
+    {
+      "symbol": "mNVDA",
+      "name": "Mock Nvidia",
+      "address": "0x656ca061BeD6Cb51139ef0A835E5371D19F76c0b",
+      "decimals": 18,
+      "kind": "mock",
+      "underlyingSymbol": "NVDA",
+      "isQuote": false,
+      "txHash": "0xdb9afd8072fde569d5d5c05e107ad37a88584e8d107ae63ac9c9d6e984b23398"
+    },
+    {
+      "symbol": "mUSD",
+      "name": "Mock USD",
+      "address": "0x5b465501348A226d4B12E040d8912d4c4776d966",
+      "decimals": 6,
+      "kind": "mock",
+      "underlyingSymbol": "USD",
+      "isQuote": true,
+      "txHash": "0x53ee149fdc8eec69c044d25e5c25964500f839cd3b1fbccf9a938e02d9f39dbc"
+    }
+  ]
 }
