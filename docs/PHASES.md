@@ -7,7 +7,7 @@ Status legend: **Live** (works on testnet), **In development**, **Planned**.
 | Milestone | Scope | Status |
 | --- | --- | --- |
 | 0 Audit & plan | Repo bootstrap, docs, schema, contract architecture | Done |
-| 1 Foundation | Network config, wallet connect, SIWE, Supabase schema, design system, app shell, pages | Done (pending Supabase credentials for migrations) |
+| 1 Foundation | Network config, wallet connect, SIWE, Supabase schema, design system, app shell, pages | Done; schema migrated to Supabase and SIWE verified locally and on tradh.com (2026-10-19) |
 | 2 Mock trading | Mock tokens, mUSD faucet, oracle, exchange, fee controller, trade UI, receipt recording | Code + tests done; **testnet deployment pending a funded deployer key** |
 | 3 Strategy engine | `StrategySpec` UI, NL builder (Claude API), tradh MCP server, versioning, scheduled evaluation | Planned |
 | 4 Controlled execution | Proposals, approval flow, risk engine, `StrategyPolicyManager`, `ExecutionRouter`, automation, revocation, notifications | Planned |
@@ -40,7 +40,7 @@ Shapes: **Stock and fund tokens** (`tokenized_security`, feature "Built on an ex
 | # | Work | Owner | Closes |
 | --- | --- | --- | --- |
 | 0 | Push `main`; Postgres URLs in `.env.local`; funded deployer key; tick the acknowledgement; publish | Wazarat | Studio validation, public page |
-| 1 | Run the migration, verify SIWE sign-in and order recording end to end | agent | Milestone 1 acceptance |
+| 1 | Run the migration, verify SIWE sign-in and order recording end to end | agent | Done 2026-10-19: 24 tables, nonce/verify/replay/cross-origin/logout checked |
 | 2 | Deploy, verify on Blockscout, seed pools at the reference ratio; write the manifest in CanHav's record format (address, sourceRepo, commitHash, compiler, runtimeCodeHash, deploymentTxn, explorer, verified, deployedOn) and a script that calls a view on every address | agent | `basic_amm_pool.manifest`, `basic_amm_pool.seed`, custom step 1, review: pool-manifest, pool-environment, pool-init |
 | 3 | Pool invariant suite: one handler, one invariant per statement 1–4 (reserve product, share supply and locked 1,000, mint shares, burn returns), statement 5 (price accumulators) marked not applicable because the venue has no TWAP; traces and seeds recorded | agent | `basic_amm_pool.invariants`, review: pool-invariants |
 | 4 | Static analysis (Slither) over every contract, findings closed or justified in `docs/SECURITY.md` | agent | review: static |
