@@ -31,7 +31,7 @@ Agent identities, validation evidence, reputation, strategy discovery and non-ex
 ## Browser verification journey (M1–M2)
 Connect wallet → wrong-network banner → switch to 46630 → claim mUSD → Markets shows mock assets with Mock badge and price age → asset detail → Trade shows all cost rows and countdown → approve → swap → Submitted → Confirmed with explorer link → Activity and Overview updated. Failure cases: stale oracle blocks trade; expired quote swaps CTA to "Refresh quote"; wallet rejection shows Rejected.
 
-## CanHav studio mapping (project e38146fd, Robinhood testnet, propose mode)
+## CanHav studio mapping (live project aa32f878 "tradh", Robinhood testnet, propose mode)
 
 Shapes: **Stock and fund tokens** (`tokenized_security`, feature "Built on an exchange's stock tokens") and **Basic AMM pool** (`basic_amm_pool`). Template decisions: accepted Robinhood Stock Tokens, Chainlink Data Feeds, Safe Smart Account, Uniswap v2 (reference and Phase 2 route); issuer suites, Pons peg pairing, LP staking, stableswap and Balancer rejected; v3/v4, hooks, LFJ, PancakeSwap and ACE left open for Phase 2.
 
